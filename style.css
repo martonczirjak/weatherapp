@@ -38,7 +38,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: row wrap;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+#app::-webkit-scrollbar {
+  display: none;
 }
 
 #app > .card > img {
@@ -54,7 +59,7 @@ html {
   border-radius: 2rem;
   margin: 0.5rem;
   background-color: white;
-  width: 8rem;
+  min-width: 10rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
