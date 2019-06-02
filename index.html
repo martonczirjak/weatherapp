@@ -5,32 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./config.js"></script>
+    <script src="config/config.js"></script>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div class="hero-image">
-      <div class="hero-text">
-        <h1>WeatherLand</h1>
+    <div id="header-template">
+      <header-template></header-template>
+    </div>
+    <div id="citySlider">
+      <arrow-key
+        v-bind:direction="'left'"
+        v-on:slide="slide('left')"
+      ></arrow-key>
+      <div id="slider-container" class="slider-container">
+        <city-item v-for="city in citysInfo" v-bind:city="city"></city-item>
       </div>
+      <arrow-key
+        v-bind:direction="'right'"
+        v-on:slide="slide('right')"
+      ></arrow-key>
     </div>
-    <div id="app">
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
-      <city-item></city-item>
+    <div id="cityDetails">
+      <city-details v-if="visible" v-bind:city="city"></city-details>
     </div>
-    <script src="./vue.js"></script>
+    <script src="./vue-components/citySlider.js"></script>
+    <script src="./vue-components/header.js"></script>
+    <script src="./vue-components/cityDetails.js"></script>
   </body>
 </html>
