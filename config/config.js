@@ -16,6 +16,6 @@ const apiConfig = {
     3435910,
     1220988
   ], // hard coded city ids
-  apiURL: 'http://api.openweathermap.org/data/2.5/', // openweather api url
+  apiURL: 'https://api.openweathermap.org/data/2.5/', // openweather api url
   apiKey: '850970f506f7625ac19765050dbbc878' // api key
 };

@@ -62,11 +62,26 @@ const citySlider = new Vue({
     }
   },
   methods: {
+    //smooth horizontal slide
     slide: function(direction) {
       if (direction == 'left') {
-        this.$el.children[1].scrollLeft -= 50;
+        let scrollAmount = 0;
+        const slideTimer = setInterval(function() {
+          document.getElementById('slider-container').scrollLeft -= 15;
+          scrollAmount += 10;
+          if (scrollAmount >= 100) {
+            window.clearInterval(slideTimer);
+          }
+        }, 25);
       } else {
-        this.$el.children[1].scrollLeft += 50;
+        let scrollAmount = 0;
+        const slideTimer = setInterval(function() {
+          document.getElementById('slider-container').scrollLeft += 15;
+          scrollAmount += 10;
+          if (scrollAmount >= 100) {
+            window.clearInterval(slideTimer);
+          }
+        }, 25);
       }
     },
     setCity: function(city) {

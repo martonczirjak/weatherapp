@@ -10,16 +10,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* landing img styles */
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url('./assets/images/heroimg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50%;
+  height: 50vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .hero-text {
@@ -27,6 +27,8 @@ html {
   padding: 2rem;
   border-radius: 2rem;
   align-self: center;
+  margin-bottom: auto;
+  margin-top: auto;
 }
 
 .hero-text > h1 {
@@ -35,9 +37,34 @@ html {
   margin: 0;
 }
 
+/* local weather card */
+.header-local-weather {
+  display: flex;
+}
+
+.header-local-weather-card {
+  border-radius: 2rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+
+.header-local-weather-city,
+.header-local-weather-temp {
+  cursor: default;
+}
+
+.header-local-weather-city {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* slider component global styles */
 #citySlider {
   background-color: #71c5e7;
-  height: 50%;
+  height: 50vh;
   display: flex;
   align-items: center;
 }
@@ -49,14 +76,17 @@ html {
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
   padding: 0 3rem;
+  margin-right: auto;
 }
 
 .slider-container::-webkit-scrollbar {
   display: none;
 }
 
+/* city weather cards */
 .card {
   border-radius: 2rem;
   margin: 0.5rem;
@@ -64,6 +94,7 @@ html {
   min-width: 20vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -116,6 +147,7 @@ html {
   font-size: 1rem;
 }
 
+/* slider arrows */
 .arrow {
   border-color: #000;
   background-color: rgba(0, 0, 0, 0.425);
@@ -137,22 +169,29 @@ html {
   left: 0;
 }
 
+/* city details global styles */
 #cityDetails {
-  height: 50%;
+  min-height: 50vh;
   background-color: #87ceeb;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url('./assets/images/heroimg2.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
+/* city details component styles */
 .details-container {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
+}
+
+.details-container > h2 {
+  margin-bottom: 0;
 }
 
 .details-row,
@@ -164,7 +203,7 @@ html {
 
 .details-top-row {
   display: flex;
-  margin-bottom: auto;
+  margin-bottom: 2rem;
 }
 
 .details-row > span {
@@ -178,4 +217,14 @@ html {
 .unit {
   font-size: 3rem;
   margin: 0;
+}
+
+/* city selector style */
+.city-select {
+  padding: 0.5rem 0.5rem;
+  margin: 1rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 10vw;
 }

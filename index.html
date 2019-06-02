@@ -15,15 +15,11 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>WeatherLand</title>
   </head>
   <body>
     <div id="header-template">
-      <header-local-weather
-        v-if="localWeather"
-        v-bind:city="localWeather"
-      ></header-local-weather>
-      <header-template></header-template>
+      <header-template v-bind:local="localWeather"></header-template>
     </div>
     <div id="citySlider">
       <arrow-key
@@ -39,6 +35,11 @@
       ></arrow-key>
     </div>
     <div id="cityDetails">
+      <city-select
+        v-if="visible"
+        v-bind:cities="citySlider._data.citysInfo"
+        v-on:select-city="console.log($event)"
+      ></city-select>
       <city-details v-if="visible" v-bind:city="city"></city-details>
     </div>
     <script src="./vue-components/citySlider.js"></script>

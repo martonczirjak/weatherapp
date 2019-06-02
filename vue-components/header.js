@@ -1,19 +1,24 @@
 Vue.component('header-local-weather', {
   props: ['city'],
   template: `
-    <div class="header-card">
-      <div class="">{{city.main.temp}}</div>
+    <div class="header-local-weather">
+      <div class="header-local-weather-card">
+        <div class="header-local-weather-city">{{city.data.name}}</div>
+        <div class="header-local-weather-temp">{{city.data.main.temp}} °C</div>
+      </div>
     </div>
   `
 });
 
 // header template
 Vue.component('header-template', {
+  props: ['local'],
   template: ` 
     <div class="hero-image">
-        <div class="hero-text">
-            <h1>WeatherLand</h1>
-        </div>
+      <header-local-weather v-if="local" v-bind:city="local"></header-local-weather>
+      <div class="hero-text">
+          <h1>WeatherLand</h1>
+      </div>
     </div>
     `
 });
@@ -24,21 +29,25 @@ const header = new Vue({
   data: {
     localWeather: ''
   },
-
   methods: {
     getLocation: function() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.getLocalWeather.coords); // get current location
+        navigator.geolocation.getCurrentPosition(this.getLocalWeather); // get current location
       } else {
       }
     },
     // get local weather data
     getLocalWeather: async function(position) {
-      const url = `${apiConfig.apiURL}weather?lat=${position.latitude}&lon=${
-        position.longitude
-      }&units=metric&APPID=${apiConfig.apiKey}`;
+      const url = `${apiConfig.apiURL}weather?lat=${
+        position.coords.latitude
+      }&lon=${position.coords.longitude}&units=metric&APPID=${
+        apiConfig.apiKey
+      }`;
       this.localWeather = await axios.get(url);
-      console.log(this.localWeather);
     }
+  },
+  //local weather api call
+  mounted: function() {
+    this.getLocation();
   }
 });
