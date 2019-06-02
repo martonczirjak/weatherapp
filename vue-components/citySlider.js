@@ -18,16 +18,22 @@ Vue.component('city-item', {
   props: ['city'],
   template: `
       <div class="card" v-on:click="$parent.setCity(city)">
-      <img src="./assets/images/sunny.png" alt="city-weather">
-      <div class="container">
-        <h4 class="card-header"><b>{{city.name}}</b></h4>
-        <div class="card-row">
-          <img src="./assets/images/Degrees-Celcius.svg"></img>
-          <p> {{city.main.temp}}</p>
+        <div class="card-header">
+          <img class="card-avatar" src="./assets/images/sunny.png" alt="city-weather">
+          <p class="card-title"> {{city.main.temp}} °C</p>
         </div>
-        <div class="card-row">
-          <img src="./assets/images/Wind.svg"></img>
-          <p> {{city.wind.speed}}</p>
+          <div class="card-body">
+          <h4 class="card-title">{{city.name}}</h4>
+          <div class="card-group">
+            <div class="card-row">
+              <img src="./assets/images/Thermometer.svg"></img>
+              <p class="minmax"> {{city.main.temp_min}}</p>
+            </div>
+            <div class="card-row">
+              <img src="./assets/images/Thermometer-100.svg"></img>
+              <p class="minmax"> {{city.main.temp_max}}</p>
+            </div>
+          </div>
         </div>
       </div>
       `

@@ -33,20 +33,22 @@ html {
   margin: 0;
 }
 
-.slider-container {
+#citySlider {
   background-color: #71c5e7;
-  min-height: 50%;
+  height: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow-x: auto;
-  max-width: 100%;
-  position: relative;
 }
 
-.slider-container > .card > img {
-  max-width: 80%;
-  border-radius: 2rem;
+.slider-container {
+  background-color: #71c5e7;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0 3rem;
 }
 
 .slider-container::-webkit-scrollbar {
@@ -54,10 +56,6 @@ html {
 }
 
 .card {
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
   border-radius: 2rem;
   margin: 0.5rem;
   background-color: white;
@@ -70,19 +68,27 @@ html {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 }
 
-.container {
+.card-header {
+  display: flex;
+}
+
+.card-body {
   padding: 2px 16px;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
 }
 
-.card > img {
+.card-avatar {
   width: 30%;
+  height: 30%;
   margin-left: 10%;
+  border-radius: 2rem;
 }
 
-.card-header {
-  margin-bottom: 0;
-  text-align: center;
+.card-title {
+  margin: 0;
+  align-self: center;
 }
 
 .card-row {
@@ -94,11 +100,18 @@ html {
   width: 2.5rem;
 }
 
-#citySlider {
+.card-row > p {
+  margin: 0;
+  align-self: center;
+}
+
+.card-group {
   display: flex;
-  background-color: #71c5e7;
-  align-items: center;
-  height: 50%;
+  justify-content: space-between;
+}
+
+.minmax {
+  font-size: 1rem;
 }
 
 .arrow {
@@ -119,7 +132,7 @@ html {
 }
 
 .prev {
-  left: 0%;
+  left: 0;
 }
 
 #cityDetails {
@@ -132,6 +145,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .details-row,
@@ -143,6 +157,7 @@ html {
 
 .details-top-row {
   display: flex;
+  margin-bottom: auto;
 }
 
 .details-row > span {
@@ -151,5 +166,9 @@ html {
 
 .details-temp {
   font-size: 3rem;
-  margin-bottom: 4rem;
+}
+
+.unit {
+  font-size: 3rem;
+  margin: 0;
 }

@@ -7,6 +7,7 @@ Vue.component('city-details', {
             <div class="details-row">
               <div class="details-description">{{city.weather[0].description}}</div>
               <div class="details-temp">{{city.main.temp}}</div>
+              <p class="unit">°C</p>
             </div>
             <div class="details-row">
               <p class="details-row">Max : {{city.main.temp_max}}</p>
@@ -16,7 +17,7 @@ Vue.component('city-details', {
           <p class="details-row">Humidity: <span>{{city.main.humidity}}</span></p>
           <p class="details-row">Pressure: <span>{{city.main.pressure}}</span></p>
           <p class="details-row">Wind speed: <span>{{city.wind.speed}}</span></p>
-          <h3>{{city.name}}</h3>
+          <h2>{{city.name}}</h2>
         </div>
       `
 });
