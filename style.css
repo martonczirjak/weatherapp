@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 body,
@@ -17,14 +18,15 @@ html {
   background-size: cover;
   height: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .hero-text {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 2rem;
   border-radius: 2rem;
+  align-self: center;
 }
 
 .hero-text > h1 {
@@ -138,6 +140,11 @@ html {
 #cityDetails {
   height: 50%;
   background-color: #87ceeb;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url('./assets/images/heroimg2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .details-container {

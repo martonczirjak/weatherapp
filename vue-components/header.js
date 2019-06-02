@@ -1,3 +1,12 @@
+Vue.component('header-local-weather', {
+  props: ['city'],
+  template: `
+    <div class="header-card">
+      <div class="">{{city.main.temp}}</div>
+    </div>
+  `
+});
+
 // header template
 Vue.component('header-template', {
   template: ` 
@@ -29,6 +38,7 @@ const header = new Vue({
         position.longitude
       }&units=metric&APPID=${apiConfig.apiKey}`;
       this.localWeather = await axios.get(url);
+      console.log(this.localWeather);
     }
   }
 });
